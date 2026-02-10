@@ -3,13 +3,15 @@ package models;
 import models.constants.ParkingSpotStatus;
 import models.constants.VehicleType;
 
-public class ParkingSpot {
+public class ParkingSpot extends BaseModel {
     private int parkingNo;
     private Vehicle vehicle;
     private VehicleType vehicleType;
     private  ParkingSpot parkingSpot;
     private ParkingSpotStatus parkingSpotStatus;
 
+    public ParkingSpot() {
+    }
     public ParkingSpot(int parkingNo, ParkingSpot parkingSpot, ParkingSpotStatus parkingSpotStatus, Vehicle vehicle, VehicleType vehicleType) {
         this.parkingNo = parkingNo;
         this.parkingSpot = parkingSpot;

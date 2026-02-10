@@ -2,6 +2,8 @@ package models;
 
 import models.constants.ParkingLotStatus;
 import models.constants.VehicleType;
+import services.SpotAllocationStrategy.SpotAllocationStrategy;
+import services.billingStrategy.BillCalculationStrategy;
 
 import java.util.List;
 
@@ -12,11 +14,14 @@ public class ParkingLot extends  BaseModel{
     private ParkingLotStatus parkingLotStatus;
     private List<VehicleType> vehicleTypeSupported;
     private List<Opreator> opreators;
+    private int currentOccupancy;
     private int capacity;
     private BillCalculationStrategy billCalculationStrategy;
-    private SlotAllocationStrategy slotAllocationStrategy;
+    private SpotAllocationStrategy spotAllocationStrategy;
 
-    public ParkingLot(String address, BillCalculationStrategy billCalculationStrategy, int capacity, String name, List<Opreator> opreators, List<ParkingFloor> parkingFloors, ParkingLotStatus parkingLotStatus, SlotAllocationStrategy slotAllocationStrategy, List<VehicleType> vehicleTypeSupported) {
+   public ParkingLot(){}
+
+    public ParkingLot(String address, BillCalculationStrategy billCalculationStrategy, int capacity, String name, List<Opreator> opreators, List<ParkingFloor> parkingFloors, ParkingLotStatus parkingLotStatus, SpotAllocationStrategy spotAllocationStrategy, List<VehicleType> vehicleTypeSupported) {
         this.address = address;
         this.billCalculationStrategy = billCalculationStrategy;
         this.capacity = capacity;
@@ -24,7 +29,7 @@ public class ParkingLot extends  BaseModel{
         this.opreators = opreators;
         this.parkingFloors = parkingFloors;
         this.parkingLotStatus = parkingLotStatus;
-        this.slotAllocationStrategy = slotAllocationStrategy;
+        this.spotAllocationStrategy = spotAllocationStrategy;
         this.vehicleTypeSupported = vehicleTypeSupported;
     }
 
@@ -84,12 +89,12 @@ public class ParkingLot extends  BaseModel{
         this.parkingLotStatus = parkingLotStatus;
     }
 
-    public SlotAllocationStrategy getSlotAllocationStrategy() {
-        return slotAllocationStrategy;
+    public SpotAllocationStrategy getSlotAllocationStrategy() {
+        return spotAllocationStrategy;
     }
 
-    public void setSlotAllocationStrategy(SlotAllocationStrategy slotAllocationStrategy) {
-        this.slotAllocationStrategy = slotAllocationStrategy;
+    public void setSlotAllocationStrategy(SpotAllocationStrategy spotAllocationStrategy) {
+        this.spotAllocationStrategy = spotAllocationStrategy;
     }
 
     public List<VehicleType> getVehicleTypeSupported() {
@@ -98,5 +103,13 @@ public class ParkingLot extends  BaseModel{
 
     public void setVehicleTypeSupported(List<VehicleType> vehicleTypeSupported) {
         this.vehicleTypeSupported = vehicleTypeSupported;
+    }
+
+    public int getCurrentOccupancy() {
+        return currentOccupancy;
+    }
+
+    public void setCurrentOccupancy(int currentOccupancy) {
+        this.currentOccupancy = currentOccupancy;
     }
 }

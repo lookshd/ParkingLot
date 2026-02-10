@@ -3,12 +3,14 @@ package models;
 import models.constants.GateStatus;
 import models.constants.GateType;
 
-public class Gates extends BaseModel {
+public class Gate extends BaseModel {
     private GateType gateType;
         private GateStatus gateStatus;
         private Opreator opreator;
 
-    public Gates(GateStatus gateStatus, int no_of_entery, int no_of_exit, Opreator opreator) {
+        public Gate(){}
+
+    public Gate(GateStatus gateStatus, int no_of_entery, int no_of_exit, Opreator opreator) {
         this.gateStatus = gateStatus;
         this.opreator = opreator;
     }

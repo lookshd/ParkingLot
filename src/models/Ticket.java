@@ -6,20 +6,22 @@ public class Ticket extends  BaseModel {
     private Vehicle vehicle;
    private LocalDateTime entryTime;
     private ParkingSpot parkingSpot;
-    private Gates entryGate;
+    private Gate entryGate;
 
-    public Ticket(Gates entryGate, LocalDateTime entryTime, ParkingSpot parkingSpot, Vehicle vehicle) {
+    public Ticket() {
+    }
+    public Ticket(Gate entryGate, LocalDateTime entryTime, ParkingSpot parkingSpot, Vehicle vehicle) {
         this.entryGate = entryGate;
         this.entryTime = entryTime;
         this.parkingSpot = parkingSpot;
         this.vehicle = vehicle;
     }
 
-    public Gates getEntryGate() {
+    public Gate getEntryGate() {
         return entryGate;
     }
 
-    public void setEntryGate(Gates entryGate) {
+    public void setEntryGate(Gate entryGate) {
         this.entryGate = entryGate;
     }
 

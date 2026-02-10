@@ -14,6 +14,7 @@ public class Bill extends  BaseModel{
     private PaymentMode paymentMode;
     private  String paymentRefrenceNo;
 
+    public Bill(){}
     public Bill(double amount, BillStatus billStatus, LocalDateTime exitTime, PaymentMode paymentMode, String paymentRefrenceNo, Ticket ticket) {
         this.amount = amount;
         this.billStatus = billStatus;
