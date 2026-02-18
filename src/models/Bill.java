@@ -71,4 +71,14 @@ public class Bill extends  BaseModel{
     public void setTicket(Ticket ticket) {
         this.ticket = ticket;
     }
+
+    public void showBillDetails(){
+        System.out.println("===============Bill Details===============");
+        System.out.println("Vehicle Number: " + ticket.getVehicle().getVehicleNumber());
+        System.out.println("Vehicle Model: " + ticket.getVehicle().getModelName());
+        System.out.println("Payment Reference No: " + paymentRefrenceNo);
+        System.out.println("Payment Mode: " + paymentMode);
+        System.out.println("Bill Amount: " + amount);
+        System.out.println("Exit Time: " + exitTime);
+    }
 }

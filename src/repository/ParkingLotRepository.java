@@ -10,9 +10,18 @@ import java.util.List;
 public class ParkingLotRepository {
     private HashMap<Integer, ParkingLot> parkingLots;
     private static int id_counter = 1;
-
+    private static ParkingLotRepository instance;
     public ParkingLotRepository() {
         this.parkingLots = new HashMap<>();
+    }
+
+    public static ParkingLotRepository getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new ParkingLotRepository();
+        }
+        return instance;
     }
 
     public ParkingLot getParkingLotById(int id) {

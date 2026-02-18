@@ -18,21 +18,21 @@ public class IntializationService {
     private  ParkingSpotRepository parkingSpotRepository;
 
     public IntializationService() {
-        this.gateRepository = new GateRepository();
+        this.gateRepository = GateRepository.getInstance();
         this.opreatorRepository = new OpreatorRepository();
-        this.parkingLotRepository = new ParkingLotRepository();
+        this.parkingLotRepository = ParkingLotRepository.getInstance();
         this.parkingFloorRepository = new ParkingFloorRepository();
         this.parkingSpotRepository = new ParkingSpotRepository();
     }
 
-    void init(){
+    public void init(){
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.setName("Safest Parking Lot");
         parkingLot.setAddress("3348, Hanuman Mandir, Karol Bagh, New Delhi");
         parkingLot.setCapacity(100);
         parkingLot.setParkingLotStatus(ParkingLotStatus.AVAILABLE);
         parkingLot.setVehicleTypeSupported(List.of(VehicleType.TWO_WHEELER,VehicleType.FOUR_WHEELER));
-        parkingLotRepository.saveParkingLot(parkingLot);
+        List<ParkingFloor> floors = new ArrayList<>();
 
         for(int i=0;i<10;i++)
         {
@@ -60,7 +60,10 @@ public class IntializationService {
             parkingFloor.setGates(List.of(entryGate,exitGate));
             parkingFloor.setParkingSpot(parkingSpots);
             parkingFloorRepository.saveParkingFloor(parkingFloor);
+            floors.add(parkingFloor);
         }
+        parkingLot.setParkingFloors(floors);
+        parkingLotRepository.saveParkingLot(parkingLot);
     }
 
 

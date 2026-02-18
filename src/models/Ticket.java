@@ -48,4 +48,16 @@ public class Ticket extends  BaseModel {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
+
+    public void showTicketDetails(){
+        System.out.println("===============Ticket Details===============");
+        System.out.println("Ticket ID:" + this.getId());
+        System.out.println("Vehicle Number: " + vehicle.getVehicleNumber());
+        System.out.println("Vehicle Model: " + vehicle.getModelName());
+        System.out.println("Vehicle Type: " + vehicle.getVehicleType());
+        System.out.println("Entry Time: " + entryTime);
+        System.out.println("Parking Spot ID: " + parkingSpot.getId());
+        System.out.println("Entry Gate ID: " + entryGate.getId());
+    }
+
 }

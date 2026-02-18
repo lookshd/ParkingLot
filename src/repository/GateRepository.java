@@ -10,6 +10,15 @@ import java.util.List;
 public class GateRepository {
     private HashMap<Integer, Gate> gates;
     private static int id_counter = 1;
+    private static GateRepository instance;
+
+    public  static GateRepository getInstance() {
+        if(instance == null)
+        {
+            instance = new GateRepository();
+        }
+        return instance;
+    }
 
     public GateRepository() {
         this.gates = new HashMap<>();

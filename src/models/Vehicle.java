@@ -4,12 +4,12 @@ import models.constants.VehicleType;
 
 public class Vehicle extends BaseModel {
     private String modelName;
-    private  String vechileNumber;
+    private  String vehicleNumber;
     private VehicleType vehicleType;
 
     public Vehicle(String modelName, String vechileNumber, VehicleType vehicleType) {
         this.modelName = modelName;
-        this.vechileNumber = vechileNumber;
+        this.vehicleNumber = vechileNumber;
         this.vehicleType = vehicleType;
     }
 
@@ -21,12 +21,12 @@ public class Vehicle extends BaseModel {
         this.modelName = modelName;
     }
 
-    public String getVechileNumber() {
-        return vechileNumber;
+    public String getVehicleNumber() {
+        return vehicleNumber;
     }
 
-    public void setVechileNumber(String vechileNumber) {
-        this.vechileNumber = vechileNumber;
+    public void setVehicleNumber(String vechileNumber) {
+        this.vehicleNumber = vechileNumber;
     }
 
     public VehicleType getVehicleType() {

@@ -10,9 +10,9 @@ public class CostConfig {
   public static final double SURGE_MULTIPLIER = 1.5;
 
     static {
-      initialHourCostCost = new HashMap<>();
-      initialHourCostCost.put(VehicleType.FOUR_WHEELER,50);
-      initialHourCostCost.put(VehicleType.TWO_WHEELER,40);
+      initialHourCost = new HashMap<>();
+      initialHourCost.put(VehicleType.FOUR_WHEELER,50);
+      initialHourCost.put(VehicleType.TWO_WHEELER,40);
       additionHourCost = new HashMap<>();
       additionHourCost.put(VehicleType.FOUR_WHEELER,30);
       additionHourCost.put(VehicleType.TWO_WHEELER,20);

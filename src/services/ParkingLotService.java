@@ -25,9 +25,9 @@ public class ParkingLotService {
     public ParkingLotService() {
         this.parkingSpotRepository = new ParkingSpotRepository();
         this.ticketRepository = new TicketRepository();
-        this.parkingLotRepository = new ParkingLotRepository();
-        this.gateRepository = new GateRepository();
-        this.billRepository = new BillRepository();
+        this.parkingLotRepository = ParkingLotRepository.getInstance();
+        this.gateRepository = GateRepository.getInstance();
+        this.billRepository = BillRepository.getInstance();
     }
 
     public Ticket genrateTicket(Vehicle vehicle, int parkingLotId, int gateId){
@@ -63,6 +63,7 @@ public class ParkingLotService {
         bill.setPaymentMode(PaymentMode.UPI);
         bill.setBillStatus(BillStatus.PAID);
         bill.setPaymentRefrenceNo("txn123323");
+        bill.setTicket(ticket);
 
         ParkingSpot parkingSpot =  ticket.getParkingSpot();
         parkingSpot.setParkingSpotStatus(ParkingSpotStatus.FREE);

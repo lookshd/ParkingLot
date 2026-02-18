@@ -10,6 +10,15 @@ import java.util.List;
 public class BillRepository {
     private HashMap<Integer, Bill> bills;
     private static int id_counter = 1;
+    private static BillRepository instance;
+
+    public  static BillRepository getInstance() {
+        if(instance == null)
+        {
+            instance = new BillRepository();
+        }
+        return instance;
+    }
 
     public BillRepository() {
         this.bills = new HashMap<>();
